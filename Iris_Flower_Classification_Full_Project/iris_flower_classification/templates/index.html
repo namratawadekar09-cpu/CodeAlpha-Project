@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">MACHINE LEARNING PROJECT</p>
+            <h1>Iris Flower Classification</h1>
+            <p class="subtitle">
+                Enter flower measurements and let the machine learning model
+                predict the Iris species.
+            </p>
+        </section>
+
+        <section class="card">
+            <form id="predictionForm">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="sepal_length">Sepal Length (cm)</label>
+                        <input id="sepal_length" type="number" step="0.1"
+                               min="0.1" placeholder="Example: 5.1" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="sepal_width">Sepal Width (cm)</label>
+                        <input id="sepal_width" type="number" step="0.1"
+                               min="0.1" placeholder="Example: 3.5" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="petal_length">Petal Length (cm)</label>
+                        <input id="petal_length" type="number" step="0.1"
+                               min="0.1" placeholder="Example: 1.4" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="petal_width">Petal Width (cm)</label>
+                        <input id="petal_width" type="number" step="0.1"
+                               min="0.1" placeholder="Example: 0.2" required>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" id="predictButton">
+                        Predict Species
+                    </button>
+                    <button type="button" class="secondary" id="sampleButton">
+                        Load Sample
+                    </button>
+                    <button type="button" class="reset" id="resetButton">
+                        Reset
+                    </button>
+                </div>
+            </form>
+
+            <div id="status" class="status" role="status"></div>
+
+            <div id="result" class="result hidden">
+                <p class="result-label">PREDICTED SPECIES</p>
+                <h2 id="predictionText">-</h2>
+                <p>Confidence: <strong id="confidenceText">-</strong></p>
+
+                <div class="probability-section">
+                    <h3>Prediction Probabilities</h3>
+                    <div id="probabilities"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Built with Python, Flask and Scikit-learn
+        </footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
